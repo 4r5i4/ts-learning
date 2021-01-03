@@ -19,6 +19,9 @@ const person= {
     hobbies: ['soccer', 'cooking']
 }
 
+console.log(person)
+
+
 // can also make the object like so:
 const person2: { 
     name: string;
@@ -54,18 +57,22 @@ enum Role {
 
 /////////////////////////////////////
 
-function showType(input1: number, input2: string, input3: boolean, input4: string[], input5:Role.Admin){
-    for (let argument of arguments){
-        console.log(typeof(argument))
-    }
+function showType(...args: Array<any>){
+// function showType(input1: number, input2: string, input3: boolean, input4: string[], input5: any){
+    // for (let argument of ...arguments){
+    //     console.log(typeof(argument))
+    // }
+    // const args = [...arguments]
+    console.log('arguments', args)
 }
+
 
 showType(
     123, 
     'Amsen is here',
     true,
     ['How', 'Are',' You'],
-    Role.Admin
+    Role.Guest
 )
 
 // you can have literal types as is the case for the 'identifier'
