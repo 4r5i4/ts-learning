@@ -7,20 +7,35 @@ function add(num1, num2){
         return num1 + num2
     }
 }
-
-
 const number1 = '2'
 const number2 = 2
-
 const result = add(number1, number2)
 console.log(result)
 
-
+//////////////////////////////////////
 const person= {
     name: 'Arsia',
     age: 3,
     hobbies: ['soccer', 'cooking']
 }
+
+// can also make the object like so:
+const person2: { 
+    name: string;
+    age: number;
+    hobbies: string[]
+} = {
+    name: 'Amsen',
+    age: 4,
+    hobbies: ['drawing']
+}
+
+console.log(person2.hobbies);
+
+/////////////////////////////////////
+
+
+// you can have a union of types, for example string or number
 
 let favoriteActivitiesOrNumbers: (string|number)[];
 favoriteActivitiesOrNumbers = ['swimming', 18]
@@ -28,11 +43,17 @@ favoriteActivitiesOrNumbers = ['swimming', 18]
 console.log(person.name, ', and he is ', person.age, ' years old apparently')
 
 
+// another type, which is enum, exclusive to TS. If the numerical value is not provided, then 
+// the compiler assigns 1, 2, 3, etc. If number is provided, then TS assumes the next index for proceeding keys, for example
+// 'Guest' will have the value 13 automagically
 enum Role {
     'Admin' = 11,
     'Author' = 12,
-    'Guest' = 333
+    'Guest'
 }
+
+/////////////////////////////////////
+
 function showType(input1: number, input2: string, input3: boolean, input4: string[], input5:Role.Admin){
     for (let argument of arguments){
         console.log(typeof(argument))
