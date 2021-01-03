@@ -28,6 +28,25 @@ favoriteActivitiesOrNumbers = ['swimming', 18]
 console.log(person.name, ', and he is ', person.age, ' years old apparently')
 
 
+enum Role {
+    'Admin' = 11,
+    'Author' = 12,
+    'Guest' = 333
+}
+function showType(input1: number, input2: string, input3: boolean, input4: string[], input5:Role.Admin){
+    for (let argument of arguments){
+        console.log(typeof(argument))
+    }
+}
+
+showType(
+    123, 
+    'Amsen is here',
+    true,
+    ['How', 'Are',' You'],
+    Role.Admin
+)
+
 // you can have literal types as is the case for the 'identifier'
 function decideNumberOrText(value: string | number , identifier: 'as-text' | 'as-number'){
     if(identifier === 'as-text'){
@@ -37,7 +56,6 @@ function decideNumberOrText(value: string | number , identifier: 'as-text' | 'as
     } else {
         console.log('ERROR, identifier has to be either as-text or as-number!')
     }
-
 }
 
 decideNumberOrText(12, 'as-text')
