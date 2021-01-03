@@ -139,3 +139,35 @@ function addAndHandle(n1: number, n2: number, cb: (num: number)=> void){
 addAndHandle(2, 343, (someResult)=>{
     console.log('The result from the CallBack function is: ' , someResult)
 })
+
+
+/////////////////////////////////////
+// there are two other types which would be good to know:
+// unknow and never
+let userInput:unknown;
+
+userInput = 5;
+userInput = 'Amsen';
+console.log(userInput) // 'Amsen'
+let userName: string;
+// at this point, the TS has inferred that userInput is of type 'any'. But if we want to do the following, we get an error
+// userName = userInput;// we get an error here, because unknown does not guarantee that we get a string (as per userName's type), even though userInput is of type string right now.
+// unknown is similar to any but more restrictive. With unknown we have to check the type first:
+if (typeof userInput === 'string'){
+    userName = userInput;
+}
+
+// now, Never:
+// similar to void but consider the following example:
+function generateError(message: string, code?: number){
+    throw{
+        message: message,
+        code: code
+    };
+}
+
+// generateError('An internal error has occured!', 500)
+// generateError('Request Error', 400) // this line never gets to run, because the line above exits the script at that point so it basically returns a 'never' even though if you hover over the funciton call, TS says it is of type 'void'
+
+
+
