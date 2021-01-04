@@ -1,6 +1,6 @@
 console.log('first console log rendered here')
 
-function add(num1, num2){
+function add(num1: number, num2: number){
     if(typeof num1 !== 'number' || typeof num2 !== 'number'){
         // throw new Error('Incorrect input')
     }else{
@@ -9,8 +9,8 @@ function add(num1, num2){
 }
 const number1 = '2'
 const number2 = 2
-const result = add(number1, number2)
-console.log(result)
+// const result = add(number1, number2)
+// console.log(result)
 
 //////////////////////////////////////
 const person= {
@@ -171,3 +171,17 @@ function generateError(message: string, code?: number){
 
 
 
+
+
+const button = document.querySelector('button')
+button?.addEventListener('click', ()=> {
+    console.log('i was clicked')
+})
+
+function clickHandler(message: string){
+    console.log('Clicked ' + message);
+}
+
+if(button){
+    button.addEventListener('click', clickHandler.bind(null, "You are welcome"))
+}
